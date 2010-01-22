@@ -19,12 +19,12 @@ class IPrincipal(zope.security.interfaces.IGroupAwarePrincipal):
     """Principals are easily identifiable entities that interact
     with the content. Commonly, a principal is a user or a group.
     """
-    id = schema.ASCIILine(
+    id = zope.schema.ASCIILine(
         title = _(u'Login'),
         required = True
         )
 
-    title = schema.TextLine(
+    title = zope.schema.TextLine(
         title = _(u'Full name'),
         description = _(u'Enter your full name.'),
         required = True,
@@ -61,7 +61,7 @@ class IPasswordChecker(Interface):
 class IPasswordProtected(Interface):
     """This interface defines items protected by a password.
     """
-    password = schema.Password(
+    password = zope.schema.Password(
         title = _(u"Password"),
         description = _(u"Enter a password"),
         required = True
