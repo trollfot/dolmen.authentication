@@ -3,7 +3,7 @@ from os.path import join
 
 name = 'dolmen.authentication'
 version = '0.1'
-readme = open(join('src', 'dolmen', 'authentication', 'README.txt').read()
+readme = open(join('src', 'dolmen', 'authentication', 'README.txt')).read()
 history = open(join('docs', 'HISTORY.txt')).read()
 
 test_requires = [
