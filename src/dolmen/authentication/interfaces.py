@@ -9,8 +9,13 @@ from dolmen.authentication import MF as _
 
 class IPrincipalFolder(Interface):
     contains('.IPrincipal')
+
+    def hasPrincipal(id):
+        """Returns a boolean representing the presence of the
+        principal with the given id in the folder.
+        """
     
-    def getUser(id):
+    def getPrincipal(id):
         """Returns an IPrincipal with the given id.
         """
 

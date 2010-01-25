@@ -2,7 +2,10 @@
 
 import grokcore.component as grok
 from dolmen.authentication import IPrincipal
-from zope.app.authentication.interfaces import IPrincipalInfo
+from zope.publisher.interfaces import IRequest
+from zope.security.interfaces import IGroupClosureAwarePrincipal
+from zope.pluggableauth.interfaces import (
+    IPrincipalInfo, IAuthenticatedPrincipalFactory, IFoundPrincipalFactory)
 
 
 class PrincipalInfo(grok.Adapter):
@@ -15,4 +18,13 @@ class PrincipalInfo(grok.Adapter):
         self.description = context.description
         self.credentialsPlugin = None
         self.authenticatorPlugin = None
- 
+
+
+class AuthenticatedPrincipalFactory(grok.MultiAdapter):
+    grok.adapts(IPrincipal, IRequest)
+    grok.provides(IAuthenticatedPrincipalFactory)
+
+    
+class FoundPrincipalFactory(grok.MultiAdapter):
+    grok.adapts(IPrincipal, IRequest)
+    grok.provides(IFoundPrincipalFactory)
