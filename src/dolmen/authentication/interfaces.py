@@ -5,6 +5,7 @@ import zope.security.interfaces
 from zope.container.constraints import contains
 from zope.interface import Interface, Attribute
 from dolmen.authentication import MF as _
+from zope.pluggableauth.interfaces import IPrincipalInfo
 
 
 class IPrincipalFolder(Interface):
