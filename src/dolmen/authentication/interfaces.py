@@ -81,8 +81,8 @@ class IAuthenticationInterfaces(Interface):
 
     IPrincipal = Attribute(
         "A principal representation, directly inheriting from "
-        "zope.security IPrincipal, but redifining several fields "
-        "for a friendly UI")
+        "zope.security IPrincipal, but redefining several fields "
+        "for a user-friendly form display.")
 
     IGroup = Attribute(
         "A logical grouping of principals. This component is an "

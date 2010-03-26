@@ -40,7 +40,7 @@ used to normalize an authentication system::
   >>> interfaceDescription(IAuthenticationInterfaces)
   IPrincipalFolder: A container specialized in storing principal representations.
   IAccountStatus: Abstraction component allowing to check the status of a principal.
-  IPrincipal: A principal representation, directly inheriting from zope.security IPrincipal, but redifining several fields for a friendly UI
+  IPrincipal: A principal representation, directly inheriting from zope.security IPrincipal, but redefining several fields for a user-friendly form display.
   IGroup: A logical grouping of principals. This component is an IPrincipal itself.
   IPasswordProtected: This interface defines any component protected by a password
   IPasswordChecker: Abstraction component in charge of resolving a principal'scredentials.
@@ -98,6 +98,9 @@ This is what the LocatablePrincipalInfo component provides::
 
   >>> ILocation.implementedBy(LocatablePrincipalInfo)
   True
+
+It can be used to link a user to its own representation in the site or
+to any object, like a homefolder or a preferences sheet.
 
 This component is registered an adapter, for the IPrincipal components. Let's
 create a persisted principal, to check the behavior::
