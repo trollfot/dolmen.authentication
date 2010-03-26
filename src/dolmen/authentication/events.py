@@ -18,7 +18,7 @@ class UserLoginEvent(ObjectEvent):
     """A basic implementation of an IUserLoggedInEvent.
     """
     implements(IUserLoggedInEvent)
-    
+
 
 class UserLogoutEvent(ObjectEvent):
     """A basic implementation of an IUserLoggedOutEvent.

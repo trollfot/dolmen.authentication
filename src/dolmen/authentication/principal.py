@@ -15,7 +15,7 @@ class LocatablePrincipalInfo(grok.Adapter):
 
     __name__ = None
     __parent__ = None
-    
+
     def __init__(self, context):
         self.id = context.id
         self.title = context.title

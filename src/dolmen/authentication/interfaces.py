@@ -14,7 +14,7 @@ class IPrincipalFolder(Interface):
         """Returns a boolean representing the presence of the
         principal with the given id in the folder.
         """
-    
+
     def getPrincipal(id):
         """Returns an IPrincipal with the given id.
         """
@@ -25,14 +25,14 @@ class IPrincipal(zope.security.interfaces.IGroupAwarePrincipal):
     with the content. Commonly, a principal is a user or a group.
     """
     id = zope.schema.ASCIILine(
-        title = _(u'Login'),
-        required = True
+        title=_(u'Login'),
+        required=True,
         )
 
     title = zope.schema.TextLine(
-        title = _(u'Full name'),
-        description = _(u'Enter your full name.'),
-        required = True,
+        title=_(u'Full name'),
+        description=_(u'Enter your full name.'),
+        required=True,
         )
 
 
@@ -66,9 +66,9 @@ class IPasswordProtected(Interface):
     """This interface defines items protected by a password.
     """
     password = zope.schema.Password(
-        title = _(u"Password"),
-        description = _(u"Enter a password"),
-        required = True
+        title=_(u"Password"),
+        description=_(u"Enter a password"),
+        required=True,
         )
 
 
