@@ -3,9 +3,8 @@
 import zope.schema
 import zope.security.interfaces
 from zope.container.constraints import contains
-from zope.interface import Interface, Attribute
+from zope.interface import Interface, Attribute, moduleProvides
 from dolmen.authentication import MF as _
-from zope.pluggableauth.interfaces import IPrincipalInfo
 
 
 class IPrincipalFolder(Interface):
@@ -37,9 +36,8 @@ class IPrincipal(zope.security.interfaces.IGroupAwarePrincipal):
         )
 
 
-class IGroup(IPrincipal):
-    """Groups are principals that are a grouping of other principals.
-    Groups can be parts of groups, for a logical nesting.
+class IGroup(zope.security.interfaces.IGroup, IPrincipal):
+    """A group of principals.
     """
 
 
@@ -72,3 +70,34 @@ class IPasswordProtected(Interface):
         description = _(u"Enter a password"),
         required = True
         )
+
+
+class IAuthenticationInterfaces(Interface):
+    """This interface describes and exposes the meaningful interfaces
+    of the authentication module.
+    """
+    IPrincipalFolder = Attribute(
+        "A container specialized in storing principal representations.")
+
+    IPrincipal = Attribute(
+        "A principal representation, directly inheriting from "
+        "zope.security IPrincipal, but redifining several fields "
+        "for a friendly UI")
+
+    IGroup = Attribute(
+        "A logical grouping of principals. This component is an "
+        "IPrincipal itself.")
+
+    IAccountStatus = Attribute(
+        "Abstraction component allowing to check the status of a principal.")
+
+    IPasswordChecker = Attribute(
+        "Abstraction component in charge of resolving a principal's"
+        "credentials.")
+
+    IPasswordProtected = Attribute(
+        "This interface defines any component protected by a password")
+
+
+moduleProvides(IAuthenticationInterfaces)
+__all__ = list(IAuthenticationInterfaces)

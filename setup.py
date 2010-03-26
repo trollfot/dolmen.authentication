@@ -7,6 +7,7 @@ readme = open(join('src', 'dolmen', 'authentication', 'README.txt')).read()
 history = open(join('docs', 'HISTORY.txt')).read()
 
 test_requires = [
+    "zope.testing",
 ]
 
 setup(name = name,
@@ -28,6 +29,15 @@ setup(name = name,
       extras_require={'test': test_requires},
       install_requires=[
           'setuptools',
+          'grokcore.component',
+          'zope.component',
+          'zope.container',
+          'zope.i18nmessageid',
+          'zope.interface',
+          'zope.location',
+          'zope.pluggableauth',
+          'zope.schema',
+          'zope.security',
       ],
       classifiers = [
         'Development Status :: 4 - Beta',
