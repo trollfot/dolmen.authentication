@@ -25,13 +25,13 @@ class IPrincipal(zope.security.interfaces.IGroupAwarePrincipal):
     with the content. Commonly, a principal is a user or a group.
     """
     id = zope.schema.ASCIILine(
-        title=_(u'Login'),
+        title=_(u'Unique principal identifier.'),
         required=True,
         )
 
     title = zope.schema.TextLine(
-        title=_(u'Full name'),
-        description=_(u'Enter your full name.'),
+        title=_(u'Principal name'),
+        description=_(u'Descriptive name of the principal.'),
         required=True,
         )
 
