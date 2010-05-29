@@ -10,7 +10,7 @@ class LocatablePrincipalInfo(grok.Adapter):
     """A principal info aware of its context location.
     """
     grok.context(IPrincipal)
-    grok.implements(ILocation)
+    grok.implements(ILocation, IPrincipalInfo)
     grok.provides(IPrincipalInfo)
 
     __name__ = None

@@ -130,6 +130,9 @@ but the location information will be unexistant::
   >>> adapter
   <dolmen.authentication.principal.LocatablePrincipalInfo ...>
 
+  >>> IPrincipalInfo.providedBy(adapter)
+  True
+
   >>> print adapter.__name__
   None
   >>> print adapter.__parent__

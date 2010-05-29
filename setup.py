@@ -2,13 +2,9 @@ from setuptools import setup, find_packages
 from os.path import join
 
 name = 'dolmen.authentication'
-version = '0.1'
+version = '0.2'
 readme = open(join('src', 'dolmen', 'authentication', 'README.txt')).read()
 history = open(join('docs', 'HISTORY.txt')).read()
-
-test_requires = [
-    "zope.testing",
-]
 
 setup(name = name,
       version = version,
@@ -26,7 +22,7 @@ setup(name = name,
       include_package_data = True,
       platforms = 'Any',
       zip_safe = False,
-      extras_require={'test': test_requires},
+      extras_require={'test': []},
       install_requires=[
           'setuptools',
           'grokcore.component',
