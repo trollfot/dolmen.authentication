@@ -92,7 +92,7 @@ class IAuthenticationInterfaces(Interface):
         "Abstraction component allowing to check the status of a principal.")
 
     IPasswordChecker = Attribute(
-        "Abstraction component in charge of resolving a principal's"
+        "Abstraction component in charge of resolving a principal's "
         "credentials.")
 
     IPasswordProtected = Attribute(

@@ -43,7 +43,7 @@ used to normalize an authentication system::
   IPrincipal: A principal representation, directly inheriting from zope.security IPrincipal, but redefining several fields for a user-friendly form display.
   IGroup: A logical grouping of principals. This component is an IPrincipal itself.
   IPasswordProtected: This interface defines any component protected by a password
-  IPasswordChecker: Abstraction component in charge of resolving a principal'scredentials.
+  IPasswordChecker: Abstraction component in charge of resolving a principal's credentials.
 
   >>> IAuthenticationInterfaces.providedBy(dolmen.authentication.interfaces)
   True
@@ -63,8 +63,8 @@ used and declined, in order to handle and trace principals' lifecycles::
   descriptions and components of the authentication module.
 
   >>> interfaceDescription(IAuthenticationEvents)
-  IUserLoggedOutEvent: IObjectEvent extending event : a user has logged out.
-  IUserLoggedInEvent: IObjectEvent extending event : a user has logged in.
+  IUserLoggedOutEvent: IObjectEvent extending event: a user has logged out.
+  IUserLoggedInEvent: IObjectEvent extending event: a user has logged in.
   UserLogoutEvent: An IUserLoggedOutEvent implementation.
   UserLoginEvent: An IUserLoggedInEvent implementation.
 
@@ -157,4 +157,4 @@ Now, if we make the principal a valid ILocation, we can exploit the results::
   <dolmen.authentication.MyParent object at ...>
 
 Now, the principal info can be resolved into an URL and used as a practical
-representation of te principal.
+representation of the principal.
