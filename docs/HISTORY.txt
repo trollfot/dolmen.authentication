@@ -1,6 +1,12 @@
 Changes
 =======
 
+0.3 (unreleased)
+----------------
+
+ - IPasswordProtected change. Password can be a plain str or a unicode
+   value now. See corresponding change in dolmen.app.authentication.
+
 0.2 (2010-05-29)
 ----------------
 

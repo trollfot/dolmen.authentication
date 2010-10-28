@@ -65,10 +65,8 @@ class IPasswordChecker(Interface):
 class IPasswordProtected(Interface):
     """This interface defines items protected by a password.
     """
-    password = zope.schema.Password(
-        title=_(u"Password"),
-        description=_(u"Enter a password"),
-        required=True,
+    password = Attribute(
+        """A password"""
         )
 
 
