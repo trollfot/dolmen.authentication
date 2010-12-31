@@ -1,2 +1,2 @@
-recursive-include src/dolmen/authentication *.txt *.py *.zcml
+recursive-include src/dolmen/authentication *.txt *.py *.zcml *.po *.mo
 recursive-include docs *.txt
