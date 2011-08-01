@@ -9,6 +9,8 @@ from dolmen.authentication.interfaces import IAuthenticationInterfaces
 from dolmen.authentication.events import *
 from dolmen.authentication.events import IAuthenticationEvents
 
+from dolmen.authentication.utils import query_active_principal
+
 
 class IAuthenticationAPI(IAuthenticationInterfaces, IAuthenticationEvents):
     """The dolmen authentication public components.
