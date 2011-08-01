@@ -1,0 +1,89 @@
+=====================
+dolmen.authentication
+=====================
+
+``dolmen.authentication`` defines security components by extending
+``zope.security``.
+
+
+Helper
+======
+
+  >>> def interfaceDescription(interface):
+  ...     for name, attr in interface.namesAndDescriptions():
+  ...         print "%s: %s" % (name, attr.getDoc())
+
+
+Overview
+========
+
+``dolmen.authentication`` provides interfaces and components::
+
+  >>> import dolmen.authentication
+  >>> from dolmen.authentication import IAuthenticationInterfaces
+  >>> from dolmen.authentication import IAuthenticationEvents
+  >>> from dolmen.authentication import IAuthenticationAPI
+
+  >>> IAuthenticationAPI.isOrExtends(IAuthenticationInterfaces)
+  True
+  
+  >>> IAuthenticationAPI.isOrExtends(IAuthenticationEvents)
+  True
+
+  >>> from zope.interface.verify import verifyObject
+  >>> verifyObject(IAuthenticationAPI, dolmen.authentication)
+  True
+
+
+Descriptive interfaces
+======================
+
+``dolmen.authentication`` provides a set of base interfaces that can be
+used to normalize an authentication system::
+
+  >>> print IAuthenticationInterfaces.__doc__
+  ... # doctest: +NORMALIZE_WHITESPACE
+  This interface describes and exposes the meaningful interfaces
+  of the authentication module.
+
+  >>> interfaceDescription(IAuthenticationInterfaces)
+  ... # doctest: +NORMALIZE_WHITESPACE
+  IChangePassword: Convenient schema to provide a 'double check' password change.
+  IPrincipalFolder: A container specialized in storing principal representations.
+  IPasswordProtected: This interface defines any component protected by a password
+  IPrincipal: A principal representation, directly inheriting from zope.security IPrincipal, but redefining several fields for a user-friendly form display.
+  IGroup: A logical grouping of principals. This component is an IPrincipal itself.
+  IAccount: Abstraction component allowing to check the status of a principal.
+  IPasswordChecker: Abstraction component in charge of resolving a principal's credentials.
+
+
+  >>> IAuthenticationInterfaces.providedBy(dolmen.authentication.interfaces)
+  True
+
+  >>> verifyObject(IAuthenticationInterfaces, dolmen.authentication.interfaces)
+  True
+
+
+Events interfaces and implementations
+=====================================
+
+``dolmen.authentication`` provides a set of basic events that can be
+used and declined, in order to handle and trace principals' lifecycles::
+
+  >>> print IAuthenticationEvents.__doc__
+  ... # doctest: +NORMALIZE_WHITESPACE
+  This interface describes and exposes the meaningful events
+  descriptions and components of the authentication module.
+
+  >>> interfaceDescription(IAuthenticationEvents)
+  ... # doctest: +NORMALIZE_WHITESPACE
+  IUserLoggedOutEvent: IObjectEvent extending event : a user has logged out.
+  IUserLoggedInEvent: IObjectEvent extending event : a user has logged in.
+  UserLogoutEvent: An IUserLoggedOutEvent implementation.
+  UserLoginEvent: An IUserLoggedInEvent implementation.
+
+  >>> IAuthenticationEvents.providedBy(dolmen.authentication.events)
+  True
+
+  >>> verifyObject(IAuthenticationEvents, dolmen.authentication.events)
+  True
