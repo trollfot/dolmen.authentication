@@ -1,15 +1,23 @@
 Changes
 =======
 
+0.3 (unreleased)
+----------------
+
+- Added French translation.
+
+- IPasswordProtected change. Password can be a plain str or a unicode
+  value now. See corresponding change in dolmen.app.authentication.
+
 0.2 (2010-05-29)
 ----------------
 
- - the LocatablePrincipalInfo adapter now implements _and_ provides
-   the IPrincipalInfo interface. This allows the adapter to be used in
-   the AuthenticatedPrincipalFactory adaptation.
+- the LocatablePrincipalInfo adapter now implements _and_ provides
+  the IPrincipalInfo interface. This allows the adapter to be used in
+  the AuthenticatedPrincipalFactory adaptation.
 
 
 0.1 (2010-03-26)
 ----------------
 
- - Initial release.
+- Initial release.

@@ -14,6 +14,7 @@ install_requires = [
     'grokcore.component',
     'setuptools',
     'zope.component',
+    'zope.i18n',
     'zope.i18nmessageid',
     'zope.interface',
     'zope.schema',
