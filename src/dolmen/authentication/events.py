@@ -9,6 +9,11 @@ class IUserEvent(IObjectEvent):
     """
 
 
+class IUserRegisteredEvent(IUserEvent):
+    """A user successfully completed the registration process.
+    """
+
+
 class IUserLoggedInEvent(IUserEvent):
     """An event trigged when a user logs in.
     """
@@ -19,13 +24,19 @@ class IUserLoggedOutEvent(IUserEvent):
     """
 
 
-class UserLoginEvent(IUserEvent):
+class UserRegisteredEvent(ObjectEvent):
+    """A basic implementation of an IUserRegisteredEvent.
+    """
+    implements(IUserRegisteredEvent)
+
+
+class UserLoginEvent(ObjectEvent):
     """A basic implementation of an IUserLoggedInEvent.
     """
     implements(IUserLoggedInEvent)
 
 
-class UserLogoutEvent(IUserEvent):
+class UserLogoutEvent(ObjectEvent):
     """A basic implementation of an IUserLoggedOutEvent.
     """
     implements(IUserLoggedOutEvent)
@@ -37,6 +48,12 @@ class IAuthenticationEvents(Interface):
     """
     IUserEvent = Attribute(
         "IObjectEvent extending event.")
+
+    IUserRegisteredEvent = Attribute(
+        "IUserEvent extending event: a user registered successfully.")
+
+    UserRegisteredEvent = Attribute(
+        "An IUserRegisteredEvent implementation.")
 
     IUserLoggedInEvent = Attribute(
         "IUserEvent extending event: a user has logged in.")

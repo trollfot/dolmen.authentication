@@ -57,7 +57,7 @@ class IPasswordChecker(Interface):
     """This interface defines items that can challenge a
     given value against a stored password value.
     """
-    def checkPassword(password):
+    def challenge(password):
         """Challenges the input password with the stored one.
         Returns True if the passwords match, False otherwise.
         """
