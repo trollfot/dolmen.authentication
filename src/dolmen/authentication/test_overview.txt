@@ -77,8 +77,8 @@ used and declined, in order to handle and trace principals' lifecycles::
 
   >>> interfaceDescription(IAuthenticationEvents)
   ... # doctest: +NORMALIZE_WHITESPACE
-  IUserLoggedOutEvent: IObjectEvent extending event : a user has logged out.
-  IUserLoggedInEvent: IObjectEvent extending event : a user has logged in.
+  IUserLoggedOutEvent: IObjectEvent extending event: a user has logged out.
+  IUserLoggedInEvent: IObjectEvent extending event: a user has logged in.
   UserLogoutEvent: An IUserLoggedOutEvent implementation.
   UserLoginEvent: An IUserLoggedInEvent implementation.
 
