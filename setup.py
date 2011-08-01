@@ -11,7 +11,6 @@ history = open(join('docs', 'HISTORY.txt')).read()
 
 install_requires = [
     'cromlech.container',
-    'grokcore.component',
     'setuptools',
     'zope.component',
     'zope.i18n',
@@ -22,8 +21,6 @@ install_requires = [
     ]
 
 tests_require = [
-    'pytest',
-    'zope.testing',
     ]
 
 setup(name=name,

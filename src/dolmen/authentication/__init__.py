@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from zope.interface import moduleProvides, Attribute
-
 from zope.i18nmessageid import MessageFactory
 MF = MessageFactory('dolmen.authentication')
 
@@ -16,6 +14,8 @@ class IAuthenticationAPI(IAuthenticationInterfaces, IAuthenticationEvents):
     """The dolmen authentication public components.
     """
 
+
+from zope.interface import moduleProvides
 
 moduleProvides(IAuthenticationAPI)
 __all__ = list(IAuthenticationAPI)

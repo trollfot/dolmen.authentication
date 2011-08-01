@@ -5,7 +5,8 @@ import zope.security.interfaces
 from cromlech.container.interfaces import IContainer
 from cromlech.container.constraints import contains
 from dolmen.authentication import MF as _
-from zope.interface import Interface, Attribute, moduleProvides, invariant
+from zope.interface import (
+    Invalid, Interface, Attribute, moduleProvides, invariant)
 
 
 class IPrincipalFolder(IContainer):
@@ -65,19 +66,24 @@ class IPasswordChecker(Interface):
 class IPasswordProtected(Interface):
     """This interface defines items protected by a password.
     """
-    password = Attribute(
-        """A password"""
-        )
+    password = Attribute("A password.")
 
 
 class IChangePassword(IPasswordProtected):
     """This interface defines a convenient way to change a password,
     including a double check.
     """
+    password = zope.schema.Password(
+        title=_(u"Password"),
+        description=_(u"Type a password."),
+        required=True)
+
     verify_password = zope.schema.Password(
         title=_(u"Password checking"),
         description=_(u"Retype the password."),
         required=True)
+
+    password.order = 25
     verify_password.order = 26
 
     @invariant
