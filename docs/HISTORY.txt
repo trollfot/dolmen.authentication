@@ -4,7 +4,7 @@ Changes
 2.0a1 (unreleased)
 ------------------
 
-- Removed the ILocation adapter for IPrincipalInfo as we no longer rely on
+- Removed the ILocation adapter for `IPrincipalInfo` as we no longer rely on
   ``zope.authentication``.
 
 - Using now the Cromlech stack.
@@ -15,7 +15,7 @@ Changes
 
 - Added French translation.
 
-- IPasswordProtected change. Password can be a plain str or a unicode
+- `IPasswordProtected` changed. Password can be a plain str or a unicode
   value now.
 
 

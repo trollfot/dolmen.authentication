@@ -77,11 +77,13 @@ used and declined, in order to handle and trace principals' lifecycles::
 
   >>> interfaceDescription(IAuthenticationEvents)
   ... # doctest: +NORMALIZE_WHITESPACE
-  IUserEvent: IObjectEvent extending event.
-  IUserLoggedOutEvent: IObjectEvent extending event: a user has logged out.
-  IUserLoggedInEvent: IObjectEvent extending event: a user has logged in.
+  IUserLoggedOutEvent: IUserEvent extending event: a user has logged out.
+  IUserLoggedInEvent: IUserEvent extending event: a user has logged in.
   UserLogoutEvent: An IUserLoggedOutEvent implementation.
+  UserRegisteredEvent: An IUserRegisteredEvent implementation.
   UserLoginEvent: An IUserLoggedInEvent implementation.
+  IUserRegisteredEvent: IUserEvent extending event: a user registered successfully.
+  IUserEvent: IObjectEvent extending event.
 
   >>> IAuthenticationEvents.providedBy(dolmen.authentication.events)
   True
