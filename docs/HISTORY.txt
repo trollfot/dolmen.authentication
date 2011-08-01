@@ -1,13 +1,23 @@
 Changes
 =======
 
-0.3 (unreleased)
-----------------
+2.0a1 (unreleased)
+------------------
+
+- Removed the ILocation adapter for IPrincipalInfo as we no longer rely on
+  ``zope.authentication``.
+
+- Using now the Cromlech stack.
+
+- Cleaned up the use of ``zope.container``.
+
+- Added the `IChangePassword` interface.
 
 - Added French translation.
 
 - IPasswordProtected change. Password can be a plain str or a unicode
-  value now. See corresponding change in dolmen.app.authentication.
+  value now.
+
 
 0.2 (2010-05-29)
 ----------------
