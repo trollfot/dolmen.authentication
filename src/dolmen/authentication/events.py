@@ -48,7 +48,7 @@ class UserJoinedGroupEvent(ObjectEvent):
     implements(IUserJoinedGroupEvent)
 
     def __init__(self, user, group):
-        super(UserJoinedGroupEvent, self).__init__(self, user)
+        super(UserJoinedGroupEvent, self).__init__(user)
         self.group = group
 
 
@@ -58,7 +58,7 @@ class UserLeftGroupEvent(ObjectEvent):
     implements(IUserLeftGroupEvent)
 
     def __init__(self, user, group):
-        super(UserLeftGroupEvent, self).__init__(self, user)
+        super(UserLeftGroupEvent, self).__init__(user)
         self.group = group
 
 
