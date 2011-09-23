@@ -1,7 +1,13 @@
 Changes
 =======
 
-2.0a1 (unreleased)
+
+2.0a2 (2011-09-22)
+------------------
+
+- Added user joined/left group events
+
+2.0a1 (2011-08-03)
 ------------------
 
 - Removed the ILocation adapter for `IPrincipalInfo` as we no longer rely on

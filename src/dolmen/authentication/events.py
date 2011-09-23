@@ -14,6 +14,18 @@ class IUserRegisteredEvent(IUserEvent):
     """
 
 
+class IUserJoinedGroupEvent(IUserEvent):
+    """A user joined a new group
+    """
+    group = Attribute('group joined by user')
+
+
+class IUserLeftGroupEvent(IUserEvent):
+    """A user left a group
+    """
+    group = Attribute('group left by user')
+
+
 class IUserLoggedInEvent(IUserEvent):
     """An event trigged when a user logs in.
     """
@@ -28,6 +40,26 @@ class UserRegisteredEvent(ObjectEvent):
     """A basic implementation of an IUserRegisteredEvent.
     """
     implements(IUserRegisteredEvent)
+
+
+class UserJoinedGroupEvent(ObjectEvent):
+    """A basic implementation of an IUserJoinedGroupEvent.
+    """
+    implements(IUserJoinedGroupEvent)
+
+    def __init__(self, user, group):
+        super(UserJoinedGroupEvent, self).__init__(self, user)
+        self.group = group
+
+
+class UserLeftGroupEvent(ObjectEvent):
+    """A basic implementation of an IUserLeftGroupEvent.
+    """
+    implements(IUserLeftGroupEvent)
+
+    def __init__(self, user, group):
+        super(UserLeftGroupEvent, self).__init__(self, user)
+        self.group = group
 
 
 class UserLoginEvent(ObjectEvent):
@@ -54,6 +86,14 @@ class IAuthenticationEvents(Interface):
 
     UserRegisteredEvent = Attribute(
         "An IUserRegisteredEvent implementation.")
+
+    IUserJoinedGroupEvent = Attribute(IUserJoinedGroupEvent.__doc__)
+    
+    UserJoinedGroupEvent = Attribute(UserJoinedGroupEvent.__doc__)
+
+    IUserLeftGroupEvent = Attribute(IUserLeftGroupEvent.__doc__)
+    
+    UserLeftGroupEvent = Attribute(UserLeftGroupEvent.__doc__)
 
     IUserLoggedInEvent = Attribute(
         "IUserEvent extending event: a user has logged in.")

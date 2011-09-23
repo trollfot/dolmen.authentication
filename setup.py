@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 
 name = 'dolmen.authentication'
-version = '2.0a1'
+version = '2.0a2'
 readme = open('README.txt').read()
 history = open(join('docs', 'HISTORY.txt')).read()
 
