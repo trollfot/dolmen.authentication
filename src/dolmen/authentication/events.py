@@ -15,13 +15,13 @@ class IUserRegisteredEvent(IUserEvent):
 
 
 class IUserJoinedGroupEvent(IUserEvent):
-    """A user joined a new group
+    """A user joined a new group
     """
     group = Attribute('group joined by user')
 
 
 class IUserLeftGroupEvent(IUserEvent):
-    """A user left a group
+    """A user left a group
     """
     group = Attribute('group left by user')
 
